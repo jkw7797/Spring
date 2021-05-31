@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property value="classpath:db.properties" name="location" />
+	</bean>
+	
+	<bean id="dataSource"
+		class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource">
+		<property value="${url}" name="url" />
+		<property value="${username}" name="username" />
+		<property value="${password}" name="password" />
+	</bean> <!-- 여기까지가 오라클 설정 -->
+	
+	<!-- 얘가 DataSource를 읽어서 mybatis를 위한 facotrybean을 생성해? -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property value="classpath:/mybatisConfig/mybatisConfig.xml" 
+			name="configLocation" /> <!-- 루트 수정 -->
+		<property value="classpath:/com/block/comm/**/*.xml" 
+			name="mapperLocations" /> <!-- 루트 수정 -->
+	</bean>
+	
+	<!-- SqlSessionTemplate 직접사용 -->
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+</beans>
