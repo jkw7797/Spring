@@ -14,8 +14,6 @@ import com.block.spring.service.BlockService;
 public class BlockController {
 	@Autowired // @Autowired는 스프링이 제공하는 애노테이션임, 타입으로 찾음
 	private BlockService blockService;
-	@Autowired
-	private BlockDao blockDao;
 
 //	@RequestMapping("/list.chain")
 //	public String list(Model model) {
@@ -23,10 +21,10 @@ public class BlockController {
 //		return "list";
 //	} //이렇게 하면 에러가 뜰 수 도 있음(불러오는 메소드가 덜 만들어 졌을 경우)
 
-//	@RequestMapping(value = "/list.chain", method = RequestMethod.GET)
-	@GetMapping(value = "/list.chain")
+	@RequestMapping("/list.chain")
 	public String list(Model model) {
-		model = blockDao.list(model);
+		blockService.list(model);
+		
 		return "list";
 	}
 

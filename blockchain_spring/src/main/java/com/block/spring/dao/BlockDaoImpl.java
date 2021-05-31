@@ -1,15 +1,27 @@
 package com.block.spring.dao;
 
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
+
+import com.block.spring.dto.employeeDTO;
 
 @Repository
 public class BlockDaoImpl implements BlockDao {
+	@Autowired
+	private DataSource dataSource;
+	
+	@Autowired
+	private SqlSession sqlSessionTemplate;
+	
+	final String query = "a";
+	
 	@Override
-	public Model list(Model model) {
-		model.addAttribute("list2", "±Ý¿ç");
-		return model;
+	public void list() {
+		int employeeID = 101;
+		employeeDTO a = sqlSessionTemplate.selectOne(query + ".employee", employeeID);
+		System.out.println(a);
 	}
-	
-	
 }

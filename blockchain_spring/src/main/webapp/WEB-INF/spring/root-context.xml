@@ -8,28 +8,28 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property value="classpath:db.properties" name="location" />
 	</bean>
-
+	
 	<bean id="dataSource"
 		class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource">
-		<property value="${driverClassName}" name="driverClassName" />
 		<property value="${url}" name="url" />
 		<property value="${username}" name="username" />
 		<property value="${password}" name="password" />
-	</bean>
+	</bean> <!-- 여기까지가 오라클 설정 -->
+	
+	<!-- 얘가 DataSource를 읽어서 mybatis를 위한 facotrybean을 생성해? -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property value="classpath:/mybatisConfig/mybatiscConfig.xml"
+		<property value="classpath:/mybatisConfig/mybatisConfig.xml"
 			name="configLocation" />
-		<!-- 여러개 -->
-		<property value="classpath:/com/block/mapper/**/*.xml"
+		<property value="classpath:/com/block/mapper/**/*.xml" 
 			name="mapperLocations" />
 	</bean>
-
+	
 	<!-- SqlSessionTemplate 직접사용 -->
 	<bean id="sqlSessionTemplate"
 		class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-
+	
 </beans>
