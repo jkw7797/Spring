@@ -4,9 +4,10 @@ import java.sql.Timestamp;
 
 public class CommentDTO {
 	private int commentNum;
-	private String content;
 	private String id;
+	private String content;
 	private Timestamp commentDate;
+	
 	public int getCommentNum() {
 		return commentNum;
 	}

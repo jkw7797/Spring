@@ -17,6 +17,10 @@
       <setting name="jdbcTypeForNull" value="VARCHAR" />
    </settings>
    
+   <typeAliases>
+      <typeAlias alias="comment" type="com.block.comm.dto.CommentDTO" />
+   </typeAliases>
+   
 <!--    <typeAliases>
       <typeAlias alias="employee" type="com.block.spring.dto.employeeDTO" />
    </typeAliases> -->

@@ -2,5 +2,14 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="a">
+<mapper namespace="com.block.comm.dao.CommentDao">
+	<insert id="insert" parameterType="comment">
+		INSERT INTO COMM VALUES(comment_seq.nextval, #{id}, #{content}, sysdate)
+	</insert>
+	
+	<select id = "commList" resultType="comment">
+		SELECT * 
+		FROM COMM
+		ORDER BY COMMENTNUM DESC  
+	</select>
 </mapper>
