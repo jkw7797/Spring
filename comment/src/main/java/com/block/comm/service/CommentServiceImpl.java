@@ -2,6 +2,8 @@ package com.block.comm.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,19 @@ public class CommentServiceImpl implements CommentService {
 		return commentDao.commList();
 	}
 
+	@Override
+	public String login(String id, String pass, HttpSession session) {
+		String dbPass = commentDao.login(id);
+		if(dbPass == null) {
+			return "redirect:/join.chain";
+		}else {
+			if(dbPass.equals(pass)) {
+				session.setAttribute("id", id);
+				return "redirect:/main.chain";
+			}else {
+				return "redirect:/login.chain";
+			}
+		}
+	}
 
 }

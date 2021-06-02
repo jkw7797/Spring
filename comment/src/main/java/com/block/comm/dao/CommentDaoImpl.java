@@ -2,6 +2,8 @@ package com.block.comm.dao;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,5 +26,10 @@ public class CommentDaoImpl implements CommentDao {
 	@Override
 	public List<CommentDTO> commList() {
 		return sqlSession.selectList(nameSpace+".commList");
+		
+	}
+	@Override
+	public String login(String id) {
+		return sqlSession.selectOne(nameSpace+".login", id);
 	}
 }

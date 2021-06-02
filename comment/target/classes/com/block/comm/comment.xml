@@ -12,4 +12,10 @@
 		FROM COMM
 		ORDER BY COMMENTNUM DESC  
 	</select>
+	
+	<select id = "login" parameterType = "String" resultType = "String">
+		SELECT PASS
+		FROM LOGIN
+		WHERE ID = #{id}
+	</select>
 </mapper>
