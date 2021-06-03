@@ -1,5 +1,6 @@
 package com.block.comm.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,16 +13,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.block.comm.dto.CommentDTO;
 import com.block.comm.service.CommentService;
+
+import oracle.sql.DATE;
 
 @Controller
 public class CommentController {
 	@Autowired // @Autowired는 스프링이 제공하는 애노테이션임, 타입으로 찾음
 	private CommentService commentService;
 
-	@RequestMapping("/main.chain")
+	@RequestMapping({"/","/main.chain"}) //web.xml에서 서블릿 매핑을 /로 바꿔야함
+//	@RequestMapping("/main.chain")
 	public String main() {
 		return "home";
 	}
@@ -35,7 +41,7 @@ public class CommentController {
 	}
 
 	@GetMapping("/write.chain")
-	public String writeForm() {
+	public String writeForm(HttpSession session){
 		return "writeForm";
 	}
 
@@ -63,4 +69,25 @@ public class CommentController {
 		session.invalidate();
 		return "redirect:/main.chain";
 	}
+	
+	//아래에 있는 메소드는 커멘트 구현과는 상관없는 JSON 결과를 보기 위한 예제임
+	@GetMapping("/getJsonList.chain")
+	@ResponseBody//메소드 위에 선언 메소드의 리턴 값이 json으로 바뀜
+//	@RestController //클래스 위에 선언 클래스 안에 모든 리턴 값이 json으로 바뀜
+	public List<CommentDTO> getJsonList(Model model) {
+		return commentService.commList();
+	}
+	
+//한 줄만 json으로 출력 
+//	@GetMapping("/getJsonList.chain")
+//	@ResponseBody
+//	public CommentDTO getJsonComment(Model model) {
+//		CommentDTO comment = new CommentDTO();
+//		comment.setCommentNum(10);
+//		comment.setContent("이제 집에 갈 시간");
+//		comment.setId("today");
+//		return comment;
+//	}
+	
+	
 }

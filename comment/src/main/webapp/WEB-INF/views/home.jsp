@@ -8,6 +8,10 @@
 		function login(){
 			location.href = "/comm/login.chain"
 		}
+		
+		function getJsonList(){
+			location.href = "/comm/getJsonList.chain"
+		}
 	</script>
 </head>
 
@@ -20,8 +24,9 @@
 		<input type="submit" value="커멘트로 가기" />&nbsp;&nbsp;&nbsp;
 		<c:if test="${id == null }">
 		<input type="button" value="로그인" onclick="login()" /></c:if>
-		<br> 
-		<input type="button" value="버튼" /><br>
+		<br><br> 
+		<input type="button" value="JSON 형식으로 커맨트 보기" onclick = "getJsonList()"/>
+		<br><br>
 		<button>버튼2</button>
 	</form>
 	<div>
