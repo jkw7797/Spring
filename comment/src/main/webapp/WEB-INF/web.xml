@@ -18,7 +18,7 @@
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-		<listener-class>com.block.comm.TestListener</listener-class>
+		<!-- <listener-class>com.block.comm.listener.TestListener</listener-class> -->
 	</listener>
 
 	<!-- Processes application requests -->

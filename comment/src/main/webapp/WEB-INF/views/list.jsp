@@ -33,7 +33,9 @@
 						<td>id: ${item.id}</td>
 						<td>content: ${item.content}</td>
 						<td>commentDate: ${item.commentDate}</td>
+						<td><a href = "/comm/delete.chain?commentNum=${item.commentNum}">삭제</a></td>
 					</tr>
+					
 				</c:forEach> 
 			</tbody>
 		</table>

@@ -18,4 +18,10 @@
 		FROM LOGIN
 		WHERE ID = #{id}
 	</select>
+	
+	<select id ="delete" parameterType="int">
+		DELETE
+		FROM COMM
+		WHERE COMMENTNUM = #{commentNum}
+	</select>
 </mapper>

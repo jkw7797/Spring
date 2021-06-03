@@ -88,6 +88,10 @@ public class CommentController {
 //		comment.setId("today");
 //		return comment;
 //	}
-	
+	@GetMapping("/delete.chain")
+	public String delete(@RequestParam("commentNum") int commentNum) {
+		commentService.delete(commentNum);
+		return "redirect:/commList.chain";
+	}
 	
 }

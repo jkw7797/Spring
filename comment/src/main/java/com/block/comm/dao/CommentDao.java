@@ -10,4 +10,5 @@ public interface CommentDao {
 	public void write(CommentDTO comment);
 	public List<CommentDTO> commList();
 	public String login(String id);
+	public void delete(int commentNum);
 }

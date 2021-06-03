@@ -32,4 +32,8 @@ public class CommentDaoImpl implements CommentDao {
 	public String login(String id) {
 		return sqlSession.selectOne(nameSpace+".login", id);
 	}
+	@Override
+	public void delete(int commentNum) {
+		sqlSession.delete(nameSpace+".delete", commentNum);
+	}
 }
