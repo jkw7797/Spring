@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ex2</title>
+</head>
+<body>
+	<ul>
+		<li th:each="dto:${list}">
+			<span th:if="${dto.sno % 5 ==0}" th:text="${'-------------------------'+dto.sno}"></span>
+			<span th:unless="${dto.sno %5 ==0}" th:text="${dto.first}">hello,</span>
+		</li>
+	</ul>
+</body>
+</html>
