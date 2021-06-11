@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout/layout :: setContent(~{this::content})}">
+	<th:block th:fragment="content">
+		<div id="product-list">
+			<div class="product-card" th:each="dto:${list}">
+				<div>
+					<img class="product-image"
+						th:src="${dto.imageUrl}"
+						alt="no image" />
+				</div>
+				<div class="product-contents">
+					<span class="product-name">[[${dto.name}]]</span> 
+					<span class="product-price">[[${dto.price}]]</span>
+				</div>
+				<div>
+				<div class="product-seller">
+                  <img
+                    class="product-avatar"
+                    src="/image/icons/avatar.png"
+                    alt="avatar"
+                  />
+					<span>[[${dto.seller}]]</span>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</th:block>
+
+</html>
