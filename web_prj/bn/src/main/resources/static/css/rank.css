@@ -1,0 +1,105 @@
+@charset "UTF-8";
+a {
+   text-decoration-line: none;
+   color: black;
+}
+body, input, select, textarea, button, pre {
+   font-family: 'Jua', sans-serif;
+   color: black;
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 1.9;
+}
+
+input:focus {
+   outline: none;
+}
+
+.container-kq {
+   width: 100%;
+   height: 150px;
+}
+
+.titDep4 {
+   display: block;
+   margin: 50px 0 30px;
+   color: #292929;
+   font-size: 30px;
+   line-height: 1;
+}
+
+.inner {
+   position: relative;
+   width: 1168px;
+   margin: 0 auto;
+}
+
+input[type='text'] {
+   color: #292929;
+   height: 50px;
+   padding: 0 400px;
+   line-height: 1;
+   border: 1px solid #d1d1d1;
+   border-radius: 70px;
+   background: #fff;
+}
+
+
+
+.dodo {
+   position: relative;
+}
+
+.dodo1 {
+   font-family: 'Noto Sans KR', sans-serif; important;
+   position: absolute;
+   top: 6%;
+   left: 0%;
+   color: black;
+   font-size: 50pt;
+   margin-left: 30px;
+   font-weight: bold;
+}
+
+.service {
+   border:2px solid ;
+   padding:10px;
+   font-size:20px;
+}
+
+.srvc {
+   margin-left:15px;
+}
+
+.btn1 {
+   margin-top:4px;
+   margin-right:20px;
+}
+.btn2 {
+   width: 70px;
+   height: 70px;
+    font-size: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    color: #292929;
+    font-weight: 600;
+    background: #ffbc0d;
+   
+}
+
+.rankstyle {
+   border:5px solid red;
+  	font-size: 4em;
+   
+}
+
+.rankstyle1 {
+   border:3px solid black;
+   font-size: 3em;
+   
+}
+
+.rankstyle2 {
+   border:1px solid black;
+   
+   }

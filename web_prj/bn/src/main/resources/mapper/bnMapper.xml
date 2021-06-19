@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.prj.bn.dao.BnDao">
+	<!-- 입점가게 리스트 출력을 위한 sql문 -->
+	<select id="getStoreList" resultType="com.prj.bn.dto.Store">
+		select * from store
+	</select>
+	
+	<!-- 로그인을 위해 해당 아이디으 비밀번호를 가져오는 sql문 -->
+	<select id="login" parameterType="String" resultType="String">
+		select MEMBER_PASSWORD 
+		from member 
+		where MEMBER_ID=#{id}
+	</select>
+
+	<select id="getMenuList" parameterType="String" resultType="com.prj.bn.dto.Menu">
+		select a.store_Id, a.store_Name, a.store_Number,a.classification,a.homepage,
+		a.floor,a.address,a.opening_Hour,a.closing_Hour,a.closed_day,a.delivery,
+		b.FOOD_NAME, b.FOOD_PRICE
+		from store a, menu b
+		where a.STORE_ID = b.STORE_ID and a.STORE_ID = ${storeId}
+	</select>
+
+	<select id = "getRankList" resultType="com.prj.bn.dto.Rank">
+    	select a.store_id, a.store_name, count(r.review) as score
+ 		from STORE a, REVIEW r 
+ 		where a.STORE_ID = r.STORE_ID(+)
+ 		group by a.store_id, store_name
+ 		order by score desc
+	</select>
+	
+	<select id="getMemberInfo" parameterType="String" resultType="com.prj.bn.dto.Member">
+		select *
+		from member 
+		where MEMBER_ID=#{id}
+	</select>
+	
+	<insert id = "createAccount" parameterType="String">
+		INSERT INTO member(MEMBER_ID, MEMBER_PASSWORD, MEMBER_NAME)
+        VALUES (#{id}, #{pass}, #{name})
+	</insert >
+	<update id = "updatePass" parameterType="String">
+		update member 
+		set MEMBER_PASSWORD= #{pass}
+		where MEMBER_ID =#{id}
+	</update>
+	
+</mapper>

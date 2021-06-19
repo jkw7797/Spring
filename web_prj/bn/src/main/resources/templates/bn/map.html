@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/layout_main :: setContent(~{this::content})}">
+   <th:block th:fragment="content">
+   <head>
+    <link href="/css/map_styles.css" rel="stylesheet" />
+    <meta charset="UTF-8"/>
+    <script src="/js/map.js"></script>
+  
+  </head>
+   <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">건물 지도</h1>
+            <!-- 층별지도 가운데로 가게 만들기 -->
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table me-1"></i> 층별 안내
+              </div>
+              <div class="mapbody">
+                
+               <!--  <div >
+                  <button class="mapButton" onclick="getMapImg(15)">15</button>
+                </div>
+                <div>
+                  <button class="mapButton" onclick="getMapImg(14)">14</button>
+                </div>
+                <div>
+                  <button class="mapButton" onclick="getMapImg(13)">13</button>
+                </div>
+                <div>
+                  <button class="mapButton" onclick="getMapImg(12)">12</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(11)">11</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(10)">10</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(9)">09</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(8)">08</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(7)">07</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(6)">06</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(5)">05</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(4)">04</button>
+                </div>
+ -->
+                <div>
+                  <button class="mapButton" onclick="getMapImg(3)">03</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(2)">02</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(1)">01</button>
+                </div>
+
+                <!-- <div>
+                  <button class="mapButton" onclick="getMapImg(16)">B1</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(17)">B2</button>
+                </div>
+
+                <div>
+                  <button class="mapButton" onclick="getMapImg(18)">B3</button>
+                </div> -->
+                
+                <div>
+                  <div style="position:absolute;  top: 59px; left: 100px;">                
+                      <div id="mapimg"><h2>2층<h2><img src="/img/second.png"></div>
+                  </div>
+                </div>
+
+              
+
+            </div>
+          </div>
+        </main>
+   </th:block>
+</th:block>
+</html>

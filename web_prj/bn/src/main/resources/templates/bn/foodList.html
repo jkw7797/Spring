@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block
+	th:replace="~{/layout/layout_main :: setContent(~{this::content})}">
+	<th:block th:fragment="content">
+		<head>
+			<meta charset="UTF-8" />
+			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+			<script src="/js/foodList.js"></script>
+			<link href="/css/stylesFood.css" rel="stylesheet" />
+				<link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+				<style>
+				* { font-family: 'Nanum Gothic', sans-serif;}
+				</style>
+
+		</head>
+		<main>
+		<div>
+			<div class="food-information">
+				<h3 class="information">Information</h3>
+				<img src="/img/food.png" width="100%" height="150">
+			</div>
+			<div class="information-1">
+				<table class="table table-hover" id="StoreList">
+					<thead>
+						<tr>
+							<td align=center valign=middle>가게이름</td>
+							<td align=center valign=middle>전화번호</td>
+							<td align=center valign=middle>종류</td>
+							<td align=center valign=middle>Homepage</td>
+							<td align=center valign=middle>주소</td>
+							<td align=center valign=middle>영업시간</td>
+							<td align=center valign=middle>휴무일</td>
+							<td align=center valign=middle>배달여부</td>
+						</tr>
+					</thead>
+					<tbody id="store-list">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="menu">
+			<h3 class="menu-1">대표메뉴</h3>
+		
+		
+			<table>	
+			<ol id="menuList">
+			</ol>			
+			</table>
+		</div>
+		</main>
+		</th:block>
+		</th:block>
+		</html>

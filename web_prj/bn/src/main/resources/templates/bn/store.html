@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{/layout/layout_main :: setContent(~{this::content})}">
+   <th:block th:fragment="content">
+   <head>
+    <meta charset="UTF-8"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" th:src="@{${js}}"></script>
+    <link href="/css/stylesFood.css" rel="stylesheet" />
+  </head>
+
+      <main>
+               <div class="container-fluid px-4">
+                  <h2 class="mt-4">입점 가게</h2>
+                  <div class="card mb-4">
+                     <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                     </div>
+                     <div class="card-body" >
+                        <table class="table table-striped" >
+                           <thead>
+                              <tr>
+                                 <th>분류</th>
+                                 <th>가게이름</th>
+                                 <th>전화번호</th>
+                                 <th>주소</th>
+                              </tr>
+                           </thead>
+                           <tbody id="store-list" ></tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <a
+				style="display: scroll; position: fixed; bottom: 70px; right: 20px;"
+				href="#" title="top"><img src="/img/up.png" width="60"
+				height="60"></a>
+          </main>
+   </th:block>
+</th:block>
+</html>
